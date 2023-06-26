@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "@netlify/functions": "^1.6.0",
+    "chrome-aws-lambda": "^10.1.0",
     "puppeteer": "^20.7.3",
+    "puppeteer-core": "^20.7.3",
     "twitter-api-v2": "^1.15.0"
   }
 }
