@@ -4,13 +4,7 @@ const tweet = require('../../twitter.js');
 
 const handler =  async (event, context) => {
   console.log("Here's the scheduled function.");
-
-  
-  main();
-  
-  return {
-      statusCode: 200,
-  };
+  await main();
 };
 
 const main = async () => {
