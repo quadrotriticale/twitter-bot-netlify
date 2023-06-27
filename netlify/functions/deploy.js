@@ -16,4 +16,4 @@ const main = async () => {
   }
 }
 
-exports.handler = schedule("@hourly", handler);
+exports.handler = schedule("0 */6 * * *", handler);
