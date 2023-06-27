@@ -18,9 +18,9 @@ const getImage = async () => {
     const title = await page.title();
     const url = await page.url();
   
-    await page.waitForSelector('.fullImageLink a img');
+    /* await page.waitForSelector('.fullImageLink a img');
     const element = await page.$('.fullImageLink a img');
-    await element.screenshot({path: 'image.png'});
+    await element.screenshot({path: 'image.png'}); */
 
     await browser.close();
     return {
