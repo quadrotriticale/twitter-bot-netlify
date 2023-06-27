@@ -8,7 +8,7 @@ const getImage = async () => {
     const browser = await puppeteer.launch({
         executablePath: await chromium.executablePath,
         args: chromium.args,
-        headless: chromium.headless
+        headless: true
     });
     const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 1080 });
