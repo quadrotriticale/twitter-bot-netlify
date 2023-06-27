@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer-core');
-const chromium = require('chrome-aws-lambda');
+//const chromium = require('chrome-aws-lambda');
+const chromium = require("@sparticuz/chromium");
 
 const RANDOM_URL = 'https://commons.wikimedia.org/wiki/Special:Random/Image';
 
@@ -8,7 +9,7 @@ const getImage = async () => {
     const browser = await puppeteer.launch({
         executablePath: await chromium.executablePath,
         args: chromium.args,
-        headless: true
+        headless: chromium.headless
     });
     const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 1080 });
