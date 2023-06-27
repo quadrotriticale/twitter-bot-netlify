@@ -16,18 +16,18 @@ const getImage = async () => {
     await page.setViewport({ width: 1920, height: 1080 });
     await page.goto(RANDOM_URL);
 
-    const title = await page.title();
     const url = await page.url();
-  
-    /* await page.waitForSelector('.fullImageLink a img');
-    const element = await page.$('.fullImageLink a img');
-    await element.screenshot({path: 'image.png'}); */
+ 
     const descriptionEl = await page.$(descriptionSel);
-    const descriptionText = await (await descriptionEl.getProperty('textContent')).jsonValue();
+    let title = await (await descriptionEl.getProperty('textContent')).jsonValue();
+    if (!title)
+        title = await page.title();
+    if (title.length > 200)
+        title = title.slice(0, 200) + '...';
 
     await browser.close();
     return {
-        descriptionText,
+        title,
         url
     }
 }
