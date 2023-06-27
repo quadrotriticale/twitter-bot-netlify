@@ -3,6 +3,7 @@ const puppeteer = require('puppeteer-core');
 const chromium = require("@sparticuz/chromium");
 
 const RANDOM_URL = 'https://commons.wikimedia.org/wiki/Special:Random/Image';
+const descriptionSel = 'td.description';
 
 
 const getImage = async () => {
@@ -21,10 +22,12 @@ const getImage = async () => {
     /* await page.waitForSelector('.fullImageLink a img');
     const element = await page.$('.fullImageLink a img');
     await element.screenshot({path: 'image.png'}); */
+    const descriptionEl = await page.$(descriptionSel);
+    const descriptionText = await (await descriptionEl.getProperty('textContent')).jsonValue();
 
     await browser.close();
     return {
-        title,
+        descriptionText,
         url
     }
 }
