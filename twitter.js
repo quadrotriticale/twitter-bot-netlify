@@ -11,9 +11,9 @@ const readWriteClient = twitterClient.readWrite;
 
 const tweet = async (title, url) => {
   try {
-    const mediaId = await readWriteClient.v1.uploadMedia('./image.png');
+    //const mediaId = await readWriteClient.v1.uploadMedia('./image.png');
     const tweetText = title + " " + url;
-    await readWriteClient.v2.tweet({ text: tweetText, media: { media_ids: [mediaId] } });
+    //await readWriteClient.v2.tweet({ text: tweetText, media: { media_ids: [mediaId] } });
   } catch(error) {
     console.log(error);
   }
