@@ -1,5 +1,5 @@
 const { schedule } = require("@netlify/functions");
-const getImage = require('../../puppeteer.js');
+const getImageInfo = require('../../puppeteer.js');
 const tweet = require('../../twitter.js');
 
 const handler =  async (event, context) => {
@@ -9,7 +9,7 @@ const handler =  async (event, context) => {
 
 const main = async () => {
   try {
-    const {title, url} = await getImage();
+    const {title, url} = await getImageInfo();
     tweet(title, url);
   } catch(error) {
     console.log(error);

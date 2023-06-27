@@ -1,12 +1,11 @@
 const puppeteer = require('puppeteer-core');
-//const chromium = require('chrome-aws-lambda');
 const chromium = require("@sparticuz/chromium");
 
 const RANDOM_URL = 'https://commons.wikimedia.org/wiki/Special:Random/Image';
 const descriptionSel = 'td.description';
 
 
-const getImage = async () => {
+const getImageInfo = async () => {
     const browser = await puppeteer.launch({
         executablePath: await chromium.executablePath,
         args: chromium.args,
@@ -22,6 +21,8 @@ const getImage = async () => {
     let title = await (await descriptionEl.getProperty('textContent')).jsonValue();
     if (!title)
         title = await page.title();
+    if (title.slice(0, 8) == "English:") 
+        title = title.slice(9, title.length);
     if (title.length > 200)
         title = title.slice(0, 200) + '...';
 
@@ -32,4 +33,4 @@ const getImage = async () => {
     }
 }
 
-module.exports = getImage;
+module.exports = getImageInfo;
