@@ -21,7 +21,7 @@ const getImageInfo = async () => {
     let title = await (await descriptionEl.getProperty('textContent')).jsonValue();
     if (!title)
         title = await page.title();
-    if (title.slice(0, 8) == "English:") 
+    if (title.includes("English: "))
         title = title.slice(9, title.length);
     if (title.length > 200)
         title = title.slice(0, 200) + '...';
