@@ -19,4 +19,4 @@ const main = async () => {
   }
 }
 
-exports.handler = schedule("0 */6 * * *", handler);
+exports.handler = schedule("0 */6 * * *", handler);   // every 6 hours
