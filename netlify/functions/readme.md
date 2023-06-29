@@ -1,0 +1,2 @@
+Twitter bot that tweets links to random Wikimedia Commons images. 
+It uses puppeteer to get the data (using [@sparticuz/chromium - Chromium for Serverless platforms](https://github.com/Sparticuz/chromium)) and is ready to be hosted on Netlify, using its [scheduled functions](https://docs.netlify.com/functions/scheduled-functions/).
